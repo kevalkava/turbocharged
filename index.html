@@ -26,7 +26,7 @@
             width: 100%;
         }
         .logo {
-            max-width: 150px; /* Increased the width */
+            max-width: 150px;
             margin-bottom: 15px;
         }
         h1 {
@@ -44,7 +44,7 @@
             border-radius: 4px;
             text-decoration: none;
             font-size: 14px;
-            line-height: 24px; /* Adjusted to fit content */
+            line-height: 24px;
             transition: background-color 0.3s;
             position: relative;
         }
@@ -159,6 +159,20 @@
             cursor: pointer;
             font-size: 18px;
         }
+        .company-profile {
+            display: block;
+            margin: 8px 0;
+            padding: 6px 0;
+            color: #fff;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 24px;
+            background-color: #ff5722; /* Red background */
+        }
+        .company-profile:hover {
+            background-color: #e64a19; /* Darker red */
+        }
     </style>
 </head>
 <body>
@@ -186,6 +200,9 @@
         <a href="mailto:info@escubeindia.net" target="_blank" class="email">
             <img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/email.png" alt="Email Icon"> Email Us
         </a>
+        <a href="#" class="company-profile" onclick="openInquiryPopup()">
+            <img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/profile.png" alt="Profile Icon"> Company Profile
+        </a>
         <div class="social-media">
             <a href="https://www.instagram.com/escubeindia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
                 <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram Icon">
@@ -201,18 +218,22 @@
             </a>
         </div>
     </div>
+
+    <!-- Inquiry Popup -->
     <div class="inquiry-popup" id="inquiryPopup">
         <div class="inquiry-popup-content">
             <span class="close-btn" onclick="closeInquiryPopup()">&times;</span>
             <h2>Inquiry Form</h2>
             <form id="inquiryForm">
                 <input type="text" id="name" name="name" placeholder="Your Name" required>
-                <input type="tel" id="contact" name="contact" placeholder="Your Contact Number" required>
+                <input type="text" id="contact" name="contact" placeholder="Your Contact Number" required>
                 <input type="email" id="email" name="email" placeholder="Your Email Address" required>
                 <button type="submit">Submit</button>
             </form>
+            <p><a href="https://drive.google.com/file/d/1bzUlNUGTPuZCyYMs8fAy65a6-nGTCTqL/view?usp=drive_link" target="_blank">Access Company Profile</a></p>
         </div>
     </div>
+
     <script>
         function toggleLocations() {
             var locationsList = document.getElementById('locationsList');
@@ -257,7 +278,7 @@
         });
 
         window.onload = function() {
-            openInquiryPopup();
+            // Optionally, you can initialize or set up any additional scripts here
         };
     </script>
 </body>
