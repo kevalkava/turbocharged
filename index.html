@@ -21,14 +21,13 @@
         }
         .container {
             background-color: #fff;
-            padding: 20px;
+            padding: 20px 25px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             text-align: center;
-            max-width: 320px; /* Reduced width */
+            max-width: 90vw; /* Adjusted for better scaling on mobile */
             width: 100%;
             position: relative;
-            overflow: hidden; /* Ensure no overflow */
         }
         .daikin-logo {
             position: absolute;
@@ -37,14 +36,14 @@
             max-width: 50px;
         }
         .logo {
-            max-width: 130px; /* Adjusted width */
+            max-width: 150px;
             margin-bottom: 15px;
         }
         h1 {
             margin-bottom: 15px;
             color: #333;
             font-weight: normal;
-            font-size: 22px; /* Adjusted size */
+            font-size: 24px;
         }
         a, .tab {
             display: block;
@@ -122,47 +121,29 @@
         .clients-section {
             margin-top: 20px;
             padding: 10px;
-            overflow: hidden; /* Hide scrollbar */
             position: relative;
-            background-color: #e0f7fa; /* Light blue background */
         }
-        .clients-section h2 {
+        .clients-section::before {
+            content: 'OUR CLIENTS';
+            display: block;
+            font-weight: bold;
             font-size: 18px;
-            color: #333;
             margin-bottom: 10px;
+            color: #333;
         }
-        .clients-carousel {
+        .clients-scroll-wrapper {
             display: flex;
             align-items: center;
-            overflow: hidden; /* Hide horizontal scrollbar */
+            overflow: hidden; /* Hide scroll bar */
             white-space: nowrap;
-            animation: scroll 30s linear infinite; /* Auto-scroll animation */
         }
         .client-logo {
             display: inline-block;
-            margin: 0 15px; /* Adjust spacing between logos */
+            margin: 10px;
         }
         .client-logo img {
-            max-width: 90px; /* Adjusted size */
+            max-width: 100px;
             height: auto;
-            vertical-align: middle;
-            background-color: transparent; /* Remove background */
-        }
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-        @media (max-width: 480px) {
-            .logo {
-                max-width: 100px;
-            }
-            .client-logo img {
-                max-width: 70px;
-            }
         }
     </style>
 </head>
@@ -207,8 +188,7 @@
             </a>
         </div>
         <div class="clients-section">
-            <h2>OUR CLIENTS</h2>
-            <div class="clients-carousel">
+            <div class="clients-scroll-wrapper" id="clientsCarousel">
                 <div class="client-logo">
                     <img src="https://www.escubeindia.net/assets/img/clients/p&g.png" alt="Client 1">
                 </div>
@@ -242,16 +222,31 @@
             </div>
         </div>
     </div>
-
     <script>
         function toggleLocations() {
-            var locationsList = document.getElementById('locationsList');
-            if (locationsList.style.display === 'none' || locationsList.style.display === '') {
-                locationsList.style.display = 'block';
+            var list = document.getElementById("locationsList");
+            if (list.style.display === "block") {
+                list.style.display = "none";
             } else {
-                locationsList.style.display = 'none';
+                list.style.display = "block";
             }
         }
+
+        const carousel = document.getElementById('clientsCarousel');
+        let scrollAmount = 0;
+        const scrollStep = 1; // Adjust to control scroll speed
+        const scrollDelay = 15; // Adjust to control scroll delay
+
+        function autoScroll() {
+            carousel.scrollLeft += scrollStep;
+            scrollAmount += scrollStep;
+            if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth) {
+                scrollAmount = 0;
+                carousel.scrollLeft = 0;
+            }
+        }
+
+        setInterval(autoScroll, scrollDelay);
     </script>
 </body>
 </html>
