@@ -123,7 +123,7 @@
             margin-top: 10px;
             padding: 10px;
             white-space: nowrap;
-            overflow: hidden; /* Hide scroll bar */
+            overflow: hidden; /* Hide scrollbar */
             background-color: transparent; /* Remove background */
             position: relative;
             display: flex;
@@ -141,6 +141,7 @@
             max-width: 100px;
             height: auto;
             vertical-align: middle;
+            display: block; /* Ensure logos are displayed */
         }
         @media (max-width: 480px) {
             .container {
@@ -205,19 +206,31 @@
                 <img src="https://www.escubeindia.net/assets/img/clients/p&g.png" alt="Client 1">
             </div>
             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/philips.png" alt="Client 2">
+                <img src="https://www.escubeindia.net/assets/img/clients/reliance-01.png" alt="Client 2">
             </div>
             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/henkel.png" alt="Client 3">
+                <img src="https://www.escubeindia.net/assets/img/clients/tata.png" alt="Client 3">
             </div>
             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/jindal.png" alt="Client 4">
+                <img src="https://www.escubeindia.net/assets/img/clients/taj.png" alt="Client 4">
             </div>
             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/bombay_dyeing.png" alt="Client 5">
+                <img src="https://www.escubeindia.net/assets/img/clients/wipro.png" alt="Client 5">
             </div>
             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/cipla.png" alt="Client 6">
+                <img src="https://www.escubeindia.net/assets/img/clients/infy.png" alt="Client 6">
+            </div>
+            <div class="client-logo">
+                <img src="https://www.escubeindia.net/assets/img/clients/inox.png" alt="Client 7">
+            </div>
+            <div class="client-logo">
+                <img src="https://www.escubeindia.net/assets/img/clients/ibm.png" alt="Client 8">
+            </div>
+            <div class="client-logo">
+                <img src="https://www.escubeindia.net/assets/img/clients/birla.png" alt="Client 9">
+            </div>
+            <div class="client-logo">
+                <img src="https://www.escubeindia.net/assets/img/clients/hiranandani.png" alt="Client 10">
             </div>
             <!-- Add more client logos as needed -->
         </div>
@@ -228,6 +241,22 @@
             var list = document.getElementById('locationsList');
             list.style.display = list.style.display === 'block' ? 'none' : 'block';
         }
+
+        // Auto-scroll functionality for the clients section
+        const clientsCarousel = document.getElementById('clientsCarousel');
+        let scrollAmount = 0;
+
+        function autoScroll() {
+            scrollAmount += 1;
+            clientsCarousel.scrollLeft += 1;
+            if (scrollAmount > clientsCarousel.scrollWidth - clientsCarousel.clientWidth) {
+                scrollAmount = 0;
+                clientsCarousel.scrollLeft = 0;
+            }
+            requestAnimationFrame(autoScroll);
+        }
+
+        autoScroll();
     </script>
 </body>
 </html>
