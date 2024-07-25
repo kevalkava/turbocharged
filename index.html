@@ -21,29 +21,30 @@
         }
         .container {
             background-color: #fff;
-            padding: 20px 25px;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             text-align: center;
-            max-width: 350px;
+            max-width: 320px; /* Reduced width */
             width: 100%;
             position: relative;
+            overflow: hidden; /* Ensure no overflow */
         }
         .daikin-logo {
             position: absolute;
             top: 10px;
             left: 10px;
-            max-width: 50px;
+            max-width: 75px;
         }
         .logo {
-            max-width: 150px;
+            max-width: 130px; /* Adjusted width */
             margin-bottom: 15px;
         }
         h1 {
             margin-bottom: 15px;
             color: #333;
             font-weight: normal;
-            font-size: 24px;
+            font-size: 22px; /* Adjusted size */
         }
         a, .tab {
             display: block;
@@ -121,7 +122,6 @@
         .clients-section {
             margin-top: 20px;
             padding: 10px;
-            white-space: nowrap;
             overflow: hidden; /* Hide scrollbar */
             position: relative;
         }
@@ -142,7 +142,7 @@
             margin: 10px;
         }
         .client-logo img {
-            max-width: 100px;
+            max-width: 90px; /* Adjusted size */
             height: auto;
             vertical-align: middle;
             background-color: transparent; /* Remove background */
@@ -157,10 +157,10 @@
         }
         @media (max-width: 480px) {
             .logo {
-                max-width: 120px;
+                max-width: 100px;
             }
             .client-logo img {
-                max-width: 80px;
+                max-width: 70px;
             }
         }
     </style>
@@ -238,7 +238,6 @@
                 <div class="client-logo">
                     <img src="https://www.escubeindia.net/assets/img/clients/hiranandani.png" alt="Client 10">
                 </div>
-                <!-- Add more client logos as needed -->
             </div>
         </div>
     </div>
@@ -252,22 +251,6 @@
                 locationsList.style.display = 'none';
             }
         }
-
-        // Auto-scroll functionality for the clients section
-        const clientsCarousel = document.querySelector('.clients-carousel');
-        let scrollAmount = 0;
-
-        function autoScroll() {
-            scrollAmount += 1;
-            clientsCarousel.scrollLeft += 1;
-            if (scrollAmount > clientsCarousel.scrollWidth - clientsCarousel.clientWidth) {
-                scrollAmount = 0;
-                clientsCarousel.scrollLeft = 0;
-            }
-            requestAnimationFrame(autoScroll);
-        }
-
-        autoScroll();
     </script>
 </body>
 </html>
