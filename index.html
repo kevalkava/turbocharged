@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escube Airconditioning Pvt. Ltd.</title>
     <link rel="icon" href="https://i.imgur.com/ShBvS4Z.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
@@ -27,21 +28,19 @@
             width: 100%;
             position: relative;
         }
-        .logo {
-            max-width: 150px;
-            margin-bottom: 15px;
-        }
         .daikin-logo {
             position: absolute;
             top: 10px;
             left: 10px;
-            max-width: 80px;
+            max-width: 50px;
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 15px;
         }
         h1 {
-            margin-top: 40px; /* Adjusted margin to accommodate the Daikin logo */
             margin-bottom: 15px;
             color: #333;
-            font-family: 'Arial', sans-serif;
             font-weight: normal;
             font-size: 24px;
         }
@@ -74,12 +73,12 @@
         }
         .website:hover {
             background-color: #016c92; /* Dark blue */
-       }
+        }
         .email {
             background-color: #d32f2f; /* Red */
         }
         .email:hover {
-            background-color: #b71c1c; /* Darker red */
+            background-color: #b71c1c; /* Darker red */
         }
         .social-media {
             display: flex;
@@ -117,6 +116,16 @@
             height: 20px;
             vertical-align: middle;
             margin-right: 8px;
+        }
+        .iframe-container {
+            margin-top: 20px;
+            width: 100%;
+            overflow-x: scroll;
+        }
+        iframe {
+            width: 1000px; /* Adjust as needed to fit the content */
+            height: 300px; /* Adjust as needed to fit the content */
+            border: none;
         }
     </style>
 </head>
@@ -159,6 +168,9 @@
             <a href="https://x.com/escube_india" target="_blank">
                 <img src="https://img.icons8.com/ios-filled/50/000000/twitter.png" alt="Twitter Icon">
             </a>
+        </div>
+        <div class="iframe-container">
+            <iframe src="https://www.escubeindia.net/#clients"></iframe>
         </div>
     </div>
 
