@@ -28,6 +28,7 @@
             max-width: 350px;
             width: 100%;
             position: relative;
+            overflow: hidden; /* Hide any overflowing content */
         }
         .daikin-logo {
             position: absolute;
@@ -122,16 +123,15 @@
             margin-top: 10px;
             padding: 10px;
             white-space: nowrap;
-            overflow-x: auto;
-            background-color: #e0f7fa; /* Light blue background */
+            overflow: hidden; /* Hide scroll bar */
+            background-color: transparent; /* Remove background */
             position: relative;
             display: flex;
             align-items: center;
+            width: 100%; /* Full width */
         }
-        .clients-section::after {
-            content: '';
-            display: block;
-            width: 100%;
+        .clients-section::-webkit-scrollbar {
+            display: none; /* Hide the scrollbar */
         }
         .client-logo {
             display: inline-block;
@@ -141,6 +141,22 @@
             max-width: 100px;
             height: auto;
             vertical-align: middle;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+                max-width: 100%;
+            }
+            .logo {
+                max-width: 120px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            .icon {
+                width: 18px;
+                height: 18px;
+            }
         }
     </style>
 </head>
@@ -189,31 +205,19 @@
                 <img src="https://www.escubeindia.net/assets/img/clients/p&g.png" alt="Client 1">
             </div>
             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/reliance-01.png" alt="Client 2">
+                <img src="https://www.escubeindia.net/assets/img/clients/philips.png" alt="Client 2">
             </div>
             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/tata.png" alt="Client 3">
+                <img src="https://www.escubeindia.net/assets/img/clients/henkel.png" alt="Client 3">
             </div>
-             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/taj.png" alt="Client 4">
+            <div class="client-logo">
+                <img src="https://www.escubeindia.net/assets/img/clients/jindal.png" alt="Client 4">
             </div>
-             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/wipro.png" alt="Client 5">
+            <div class="client-logo">
+                <img src="https://www.escubeindia.net/assets/img/clients/bombay_dyeing.png" alt="Client 5">
             </div>
-             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/infy.png" alt="Client 6">
-            </div>
-             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/inox.png" alt="Client 7">
-            </div>
-             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/ibm.png" alt="Client 8">
-            </div>
-             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/birla.png" alt="Client 9">
-            </div>
-             <div class="client-logo">
-                <img src="https://www.escubeindia.net/assets/img/clients/hiranandani.png" alt="Client 10">
+            <div class="client-logo">
+                <img src="https://www.escubeindia.net/assets/img/clients/cipla.png" alt="Client 6">
             </div>
             <!-- Add more client logos as needed -->
         </div>
@@ -221,29 +225,9 @@
 
     <script>
         function toggleLocations() {
-            var locationsList = document.getElementById('locationsList');
-            if (locationsList.style.display === 'none' || locationsList.style.display === '') {
-                locationsList.style.display = 'block';
-            } else {
-                locationsList.style.display = 'none';
-            }
+            var list = document.getElementById('locationsList');
+            list.style.display = list.style.display === 'block' ? 'none' : 'block';
         }
-
-        // Auto-scroll functionality for the clients section
-        const clientsCarousel = document.getElementById('clientsCarousel');
-        let scrollAmount = 0;
-
-        function autoScroll() {
-            scrollAmount += 1;
-            clientsCarousel.scrollLeft += 1;
-            if (scrollAmount > clientsCarousel.scrollWidth - clientsCarousel.clientWidth) {
-                scrollAmount = 0;
-                clientsCarousel.scrollLeft = 0;
-            }
-            requestAnimationFrame(autoScroll);
-        }
-
-        autoScroll();
     </script>
 </body>
 </html>
